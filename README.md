@@ -48,11 +48,29 @@ To avoid `ModuleNotFoundError`, configure VS Code to use the correct Python inte
 
 ## Troubleshooting
 
-| Issue                          | Solution                                                        |
-| ------------------------------ | --------------------------------------------------------------- |
-| Terminal prompt shows `(base)` | Wrong environment activated. Run `micromamba activate fiftyone` |
-| `import fiftyone` fails        | VS Code interpreter not set to `fiftyone` environment           |
-| Changes don't take effect      | Restart VS Code after environment or shell changes              |
+| Issue                                             | Solution                                                                                                                                                                                                         |
+| ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Terminal prompt shows `(base)`                    | Wrong environment activated. Run `micromamba activate fiftyone`                                                                                                                                                  |
+| `ModuleNotFoundError: No module named 'fiftyone'` | **Always activate the fiftyone environment before running the script!** Use `micromamba activate fiftyone` then `python load_coco_fiftyone.py`, OR use `micromamba run -n fiftyone python load_coco_fiftyone.py` |
+| `import fiftyone` fails                           | VS Code interpreter not set to `fiftyone` environment                                                                                                                                                            |
+| Changes don't take effect                         | Restart VS Code after environment or shell changes                                                                                                                                                               |
+
+### Important: Running the Script
+
+To avoid module import errors, **always run the script within the fiftyone environment**:
+
+**Method 1: Activate first (recommended)**
+
+```bash
+micromamba activate fiftyone
+python load_coco_fiftyone.py
+```
+
+**Method 2: Use micromamba run**
+
+```bash
+micromamba run -n fiftyone python load_coco_fiftyone.py
+```
 
 ## Project Structure
 

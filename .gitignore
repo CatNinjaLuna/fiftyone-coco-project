@@ -1,0 +1,20 @@
+cat > .gitignore << 'EOF'
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv
+
+# FiftyOne
+.fiftyone/
+
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+EOF

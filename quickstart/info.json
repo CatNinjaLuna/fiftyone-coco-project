@@ -1,0 +1,6 @@
+{
+    "name": "quickstart",
+    "zoo_dataset": "fiftyone.zoo.datasets.base.QuickstartDataset",
+    "dataset_type": "fiftyone.types.dataset_types.FiftyOneDataset",
+    "num_samples": 200
+}

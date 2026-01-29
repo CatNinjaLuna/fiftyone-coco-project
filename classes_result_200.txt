@@ -1,0 +1,100 @@
+=== Label Counts in Original Dataset ===
+Total samples: 200
+
+All labels found:
+  person: 378
+  kite: 75
+  car: 61
+  bird: 51
+  carrot: 47
+  boat: 37
+  surfboard: 30
+  airplane: 24
+  traffic light: 24
+  giraffe: 23
+  umbrella: 23
+  chair: 23
+  bench: 23
+  cow: 22
+  cup: 21
+  truck: 19
+  motorcycle: 19
+  horse: 17
+  elephant: 17
+  cat: 16
+  broccoli: 16
+  handbag: 15
+  dining table: 15
+  bowl: 15
+  dog: 15
+  zebra: 14
+  donut: 13
+  book: 11
+  bottle: 10
+  spoon: 9
+  suitcase: 9
+  knife: 9
+  pizza: 9
+  fork: 9
+  skis: 8
+  backpack: 7
+  sandwich: 6
+  tie: 6
+  bear: 6
+  sink: 5
+  hot dog: 5
+  train: 5
+  cake: 4
+  couch: 4
+  wine glass: 4
+  laptop: 4
+  baseball glove: 4
+  clock: 4
+  banana: 3
+  refrigerator: 3
+  sports ball: 3
+  skateboard: 3
+  oven: 2
+  fire hydrant: 2
+  toothbrush: 2
+  snowboard: 2
+  orange: 2
+  apple: 2
+  stop sign: 2
+  frisbee: 2
+  tennis racket: 2
+  sheep: 2
+  microwave: 1
+  cell phone: 1
+  bus: 1
+  teddy bear: 1
+  parking meter: 1
+  bed: 1
+  scissors: 1
+  tv: 1
+  vase: 1
+
+=== Target Labels (car, person, bicycle) ===
+  car: 61
+  person: 378
+  bicycle: 0
+Total target detections: 439
+Filtered samples (images with target labels): 101
+
+=== Filtered Dataset Info ===
+Dataset:     coco-local
+Media type:  image
+Num samples: 101
+Sample fields:
+    id:               fiftyone.core.fields.ObjectIdField
+    filepath:         fiftyone.core.fields.StringField
+    tags:             fiftyone.core.fields.ListField(fiftyone.core.fields.StringField)
+    metadata:         fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.metadata.ImageMetadata)
+    created_at:       fiftyone.core.fields.DateTimeField
+    last_modified_at: fiftyone.core.fields.DateTimeField
+    ground_truth:     fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+    uniqueness:       fiftyone.core.fields.FloatField
+    predictions:      fiftyone.core.fields.EmbeddedDocumentField(fiftyone.core.labels.Detections)
+View stages:
+    1. FilterLabels(field='ground_truth', filter={'$in': ['$$this.label', [...]]}, only_matches=True, trajectories=False)
+    2. Match(filter={'$expr': {'$gt': [...]}})

@@ -23,9 +23,34 @@ filtered_view = dataset.filter_labels(
     fo.ViewField("ground_truth.detections").length() > 0
 )
 
-print(f"Original dataset: {len(dataset)} samples")
-print(f"Filtered dataset: {len(filtered_view)} samples with car/person/bicycle annotations")
-print("\nFiltered dataset info:")
-print(filtered_view)
+# Count all detections by label in the original dataset
+output_file = "classes_result_200.txt"
+
+with open(output_file, 'w') as f:
+    # Write to both console and file
+    def write_output(text):
+        print(text)
+        f.write(text + '\n')
+    
+    write_output("=== Label Counts in Original Dataset ===")
+    label_counts = dataset.count_values("ground_truth.detections.label")
+    write_output(f"Total samples: {len(dataset)}")
+    write_output(f"\nAll labels found:")
+    for label, count in sorted(label_counts.items(), key=lambda x: x[1], reverse=True):
+        write_output(f"  {label}: {count}")
+    
+    # Count target label detections
+    total_target_detections = sum(label_counts.get(label, 0) for label in target_labels)
+    write_output(f"\n=== Target Labels (car, person, bicycle) ===")
+    for label in target_labels:
+        count = label_counts.get(label, 0)
+        write_output(f"  {label}: {count}")
+    write_output(f"Total target detections: {total_target_detections}")
+    write_output(f"Filtered samples (images with target labels): {len(filtered_view)}")
+    
+    write_output("\n=== Filtered Dataset Info ===")
+    write_output(str(filtered_view))
+
+print(f"\nResults saved to: {output_file}")
 print("\nSample data:")
 print(filtered_view.head())

@@ -76,11 +76,73 @@ micromamba run -n fiftyone python load_coco_fiftyone.py
 
 ```
 .
-├── load_coco_fiftyone.py    # Main script to load COCO dataset
-├── README.md                 # This file
-└── quickstart/               # Dataset directory
+├── load_coco_fiftyone.py         # Quickstart dataset loader (200 samples)
+├── load_coco_full_fiftyone.py    # Full COCO 2017 validation analysis
+├── load_coco_all_tasks.py        # Multi-task analysis (detection/segmentation/keypoints)
+├── download_coco_filtered.py     # ⭐ PRIMARY: HPC-ready YOLO format downloader
+├── README.md                      # This file
+├── DOWNLOAD_INSTRUCTIONS.md       # Detailed HPC usage guide
+├── classes_result_200.txt         # Analysis: Quickstart subset
+├── coco_full_classes_result.txt   # Analysis: Validation set (2,889 images)
+├── coco_all_tasks_result.txt      # Analysis: All COCO tasks
+└── quickstart/                    # Quickstart dataset directory
     ├── info.json
     ├── metadata.json
     ├── samples.json
     └── data/
 ```
+
+## 🎯 For Dataset Balancing (Car/Person/Bicycle)
+
+**Focus on DETECTION task only** - it contains all the annotations you need!
+
+### Primary Script: `download_coco_filtered.py`
+
+This script is designed for your use case:
+
+- ✅ Downloads **detection task only** (not segmentation/keypoints)
+- ✅ Filters for **car, person, bicycle** classes
+- ✅ Converts to **YOLO format** (ready for training)
+- ✅ **HPC-ready** (no FiftyOne dependency, uses pycocotools)
+- ✅ Resumable downloads
+
+**Quick Start:**
+
+```bash
+# 1. Test locally with validation set (2,889 images, ~1-2GB)
+python download_coco_filtered.py --split val2017 --output ./coco_filtered
+
+# 2. On HPC: Download full training set (~40-60K images, 15-20GB)
+python download_coco_filtered.py --split train2017 --output ./coco_filtered
+```
+
+### COCO Detection Task Statistics (Validation Set)
+
+Based on analysis in `coco_full_classes_result.txt`:
+
+- **Total samples**: 2,889 images
+- **Total detections**: 27,260 objects
+- **Target class detections**: 13,252 (48.61% of all detections)
+   - person: 11,004 (40.37%)
+   - car: 1,932 (7.09%)
+   - bicycle: 316 (1.16%)
+
+**Images per class:**
+
+- Images with person: 2,693
+- Images with car: 535
+- Images with bicycle: 149
+
+### Why Detection Task Only?
+
+Analysis (`coco_all_tasks_result.txt`) confirms:
+
+- **Detection task**: Contains all car/person/bicycle annotations ✅
+- **Keypoints task**: Only human pose annotations (no object labels) ❌
+- **Segmentation task**: Same objects as detection but with masks (not needed for YOLO) ❌
+
+**Next Steps:**
+
+1. Review `DOWNLOAD_INSTRUCTIONS.md` for HPC setup
+2. Use `download_coco_filtered.py` to get detection data in YOLO format
+3. Merge with Huawei + PascalRAW datasets for balanced training

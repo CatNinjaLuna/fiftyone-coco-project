@@ -1,0 +1,158 @@
+======================================================================
+COCO 2017 ALL TASKS ANALYSIS
+Analyzing: Detection, Segmentation, and Keypoints tasks
+Target classes: car, person, bicycle
+======================================================================
+
+======================================================================
+TASK: DETECTION
+======================================================================
+Downloading COCO 2017 detection (validation split)...
+Filtering for: car, person, bicycle
+Dataset downloaded: coco-2017-detection
+
+Total samples: 2889
+Label field: ground_truth
+
+Label counts:
+  person              :  11004 (40.37%)
+  car                 :   1932 ( 7.09%)
+  chair               :   1366 ( 5.01%)
+  bottle              :    622 ( 2.28%)
+  cup                 :    566 ( 2.08%)
+  traffic light       :    538 ( 1.97%)
+  handbag             :    529 ( 1.94%)
+  dining table        :    407 ( 1.49%)
+  book                :    397 ( 1.46%)
+  umbrella            :    355 ( 1.30%)
+  backpack            :    355 ( 1.30%)
+  truck               :    330 ( 1.21%)
+  bench               :    330 ( 1.21%)
+  motorcycle          :    316 ( 1.16%)
+  bicycle             :    316 ( 1.16%)
+  kite                :    314 ( 1.15%)
+  bowl                :    297 ( 1.09%)
+  sports ball         :    251 ( 0.92%)
+  boat                :    249 ( 0.91%)
+  surfboard           :    247 ( 0.91%)
+  tie                 :    247 ( 0.91%)
+  wine glass          :    246 ( 0.90%)
+  skis                :    241 ( 0.88%)
+  bus                 :    235 ( 0.86%)
+  suitcase            :    233 ( 0.85%)
+  tennis racket       :    224 ( 0.82%)
+  remote              :    223 ( 0.82%)
+  cell phone          :    211 ( 0.77%)
+  cake                :    202 ( 0.74%)
+  horse               :    201 ( 0.74%)
+  banana              :    192 ( 0.70%)
+  pizza               :    191 ( 0.70%)
+  donut               :    190 ( 0.70%)
+  skateboard          :    175 ( 0.64%)
+  bird                :    174 ( 0.64%)
+  potted plant        :    163 ( 0.60%)
+  knife               :    155 ( 0.57%)
+  baseball glove      :    147 ( 0.54%)
+  sheep               :    147 ( 0.54%)
+  tv                  :    141 ( 0.52%)
+  baseball bat        :    131 ( 0.48%)
+  spoon               :    128 ( 0.47%)
+  couch               :    126 ( 0.46%)
+  clock               :    122 ( 0.45%)
+  laptop              :    116 ( 0.43%)
+  fork                :    113 ( 0.41%)
+  orange              :    110 ( 0.40%)
+  train               :    106 ( 0.39%)
+  dog                 :    105 ( 0.39%)
+  apple               :    102 ( 0.37%)
+  frisbee             :    102 ( 0.37%)
+  hot dog             :    101 ( 0.37%)
+  vase                :     94 ( 0.34%)
+  elephant            :     91 ( 0.33%)
+  cow                 :     88 ( 0.32%)
+  carrot              :     82 ( 0.30%)
+  teddy bear          :     74 ( 0.27%)
+  sandwich            :     74 ( 0.27%)
+  snowboard           :     68 ( 0.25%)
+  bed                 :     67 ( 0.25%)
+  fire hydrant        :     66 ( 0.24%)
+  airplane            :     56 ( 0.21%)
+  oven                :     53 ( 0.19%)
+  refrigerator        :     44 ( 0.16%)
+  stop sign           :     40 ( 0.15%)
+  keyboard            :     40 ( 0.15%)
+  parking meter       :     38 ( 0.14%)
+  toothbrush          :     37 ( 0.14%)
+  cat                 :     37 ( 0.14%)
+  sink                :     35 ( 0.13%)
+  giraffe             :     32 ( 0.12%)
+  toilet              :     27 ( 0.10%)
+  mouse               :     25 ( 0.09%)
+  broccoli            :     22 ( 0.08%)
+  microwave           :     15 ( 0.06%)
+  scissors            :     14 ( 0.05%)
+  zebra               :     11 ( 0.04%)
+  hair drier          :      5 ( 0.02%)
+  bear                :      3 ( 0.01%)
+  toaster             :      1 ( 0.00%)
+
+Target class statistics:
+  car                 :   1932 ( 7.09%)
+  person              :  11004 (40.37%)
+  bicycle             :    316 ( 1.16%)
+
+Images containing target classes:
+  Images with 'car': 535
+  Images with 'person': 2693
+  Images with 'bicycle': 149
+
+======================================================================
+TASK: SEGMENTATION
+======================================================================
+Downloading COCO 2017 segmentation (validation split)...
+Filtering for: car, person, bicycle
+Error loading segmentation dataset: The requested operation requires that 'pycocotools' is installed on your machine.
+
+If you think this error is inaccurate, you can set `fiftyone.config.requirement_error_level` to 1 (warning) or 2 (ignore).
+See https://docs.voxel51.com/user_guide/config.html for details.
+Skipping segmentation task
+
+======================================================================
+TASK: KEYPOINTS
+======================================================================
+Downloading COCO 2017 keypoints (validation split)...
+Filtering for: car, person, bicycle
+Dataset downloaded: coco-2017-keypoints
+
+Total samples: 2889
+Label field: ground_truth
+
+Label counts:
+
+Target class statistics:
+  car                 :      0 ( 0.00%)
+  person              :      0 ( 0.00%)
+  bicycle             :      0 ( 0.00%)
+
+Images containing target classes:
+  Images with 'car': 0
+  Images with 'person': 0
+  Images with 'bicycle': 0
+
+======================================================================
+SUMMARY ACROSS ALL TASKS
+======================================================================
+
+Total samples across all tasks: 5778
+Total detections across all tasks: 27260
+
+Target class totals:
+  car                 :   1932 ( 7.09%)
+  person              :  11004 (40.37%)
+  bicycle             :    316 ( 1.16%)
+
+Grand total target detections: 13252
+
+Breakdown by task:
+  detection           : 27260 detections in 2889 samples
+  keypoints           : 0 detections in 2889 samples
